@@ -129,9 +129,11 @@ html {
 // ---
 
 // Background color for `<body>`
-@body-background: #fff;
+// @body-background: #fff;
+@body-background: ~'var(--block-color-1)';
 // Base background color for most components
-@component-background: #fff;
+// @component-background: #fff;
+@component-background: ~'var(--block-color-5)';
 // Popover background color
 @popover-background: @component-background;
 @popover-customize-border-color: @border-color-split;
@@ -139,14 +141,21 @@ html {
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 85%);
-@text-color-secondary: fade(@black, 45%);
-@text-color-inverse: @white;
+// @text-color: fade(@black, 85%);
+@text-color: ~'var(--text-color-1)';
+// @text-color-secondary: fade(@black, 45%);
+@text-color-secondary: ~'var(--text-color-3)';
+// @text-color-inverse: @white;
+@text-color-inverse: ~'var(--text-color-inverse-1)';
 @icon-color: inherit;
-@icon-color-hover: fade(@black, 75%);
-@heading-color: fade(@black, 85%);
-@text-color-dark: fade(@white, 85%);
-@text-color-secondary-dark: fade(@white, 65%);
+// @icon-color-hover: fade(@black, 75%);
+@icon-color-hover: ~'var(--text-color-2)';
+// @heading-color: fade(@black, 85%);
+@heading-color: ~'var(--text-color-1)';
+// @text-color-dark: fade(@white, 85%);
+@text-color-dark: ~'var(--text-color-inverse-2)';
+// @text-color-secondary-dark: fade(@white, 65%);
+@text-color-secondary-dark: ~'var(--text-color-inverse-3)';
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
@@ -664,7 +673,7 @@ html {
 @menu-item-group-title-font-size: @menu-item-font-size;
 
 // dark theme
-@menu-dark-color: @text-color-secondary-dark;
+// @menu-dark-color: @text-color-secondary-dark;
 @menu-dark-danger-color: @error-color;
 @menu-dark-bg: @layout-header-background;
 @menu-dark-arrow-color: #fff;
@@ -1114,9 +1123,11 @@ html {
 // ---
 @image-size-base: 48px;
 @image-font-size-base: 24px;
-@image-bg: #f5f5f5;
-@image-color: #fff;
+// @image-bg: #f5f5f5;
+@image-bg: ~'var(--block-color-3)';
+// @image-color: #fff;
 @image-mask-font-size: 16px;
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
-@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+// @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+@image-preview-operation-disabled-color: ~'var(--text-color-inverse-4)';
