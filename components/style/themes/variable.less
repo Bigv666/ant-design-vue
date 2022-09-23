@@ -9,7 +9,8 @@
 // An override for the html selector for theme prefixes
 @html-selector: html;
 
-@base-primary: @blue-6;
+// @base-primary: @blue-6;
+@base-primary: #f60;
 
 html {
   // ========= Primary Color =========
@@ -67,6 +68,23 @@ html {
   --@{ant-prefix}-info-color: @base-primary;
   --@{ant-prefix}-info-color-deprecated-bg: ~`colorPalette('@{base-primary}', 1) `;
   --@{ant-prefix}-info-color-deprecated-border: ~`colorPalette('@{base-primary}', 3) `;
+
+  // ========== block color ===========
+  --block-color-1: #eee;
+  --block-color-2: #f2f2f2;
+  --block-color-3: #f5f5f5;
+  --block-color-4: #fafafa;
+  --block-color-5: #fff;
+  // ========== text color ===========
+  --text-color-1: rgba(0, 0, 0, 0.85);
+  --text-color-2: rgba(0, 0, 0, 0.75);
+  --text-color-3: rgba(0, 0, 0, 0.65);
+  --text-color-4: rgba(0, 0, 0, 0.45);
+  --text-color-5: rgba(0, 0, 0, 0.25);
+  --text-color-inverse-1: #fff;
+  --text-color-inverse-2: rgba(255,255,255,0.8);
+  --text-color-inverse-3: rgba(255,255,255,0.6);
+  --text-color-inverse-4: rgba(255,255,255,0.3);
 }
 
 // -------- Colors -----------
@@ -198,7 +216,8 @@ html {
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg: @primary-1;
-@item-hover-bg: #f5f5f5;
+// @item-hover-bg: #f5f5f5;
+@item-hover-bg: ~'var(--block-color-3)';
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
@@ -241,29 +260,53 @@ html {
 @outline-color: @primary-color; // No use anymore
 @outline-fade: 20%;
 
-@background-color-light: hsv(0, 0, 98%); // background of header and selected item
-@background-color-base: hsv(0, 0, 96%); // Default grey background color
+// @background-color-light: hsv(0, 0, 98%); // background of header and selected item
+@background-color-light: ~'var(--block-color-3)'; // background of header and selected item
+// @background-color-base: hsv(0, 0, 96%); // Default grey background color
+@background-color-base: ~'var(--block-color-2)'; // Default grey background color
 
 // Disabled states
-@disabled-color: fade(#000, 25%);
-@disabled-bg: @background-color-base;
-@disabled-active-bg: tint(@black, 90%);
-@disabled-color-dark: fade(#fff, 35%);
+// @disabled-color: fade(#000, 25%);
+@disabled-color: ~'var(--text-color-5)';
+// @disabled-color: ~'var(--text-color-4)';
+// @disabled-bg: @background-color-base;
+@disabled-bg: ~'var(--block-color-4)';
+// @disabled-active-bg: tint(@black, 90%);
+@disabled-active-bg: ~'var(--block-color-2)';
+// @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
-@shadow-color: rgba(0, 0, 0, 0.15);
+// @shadow-color: rgba(0, 0, 0, 0.15);
+@shadow-color: ~'var(--shadow-color-1)'; // rgba(0,0,0,0.15)
 @shadow-color-inverse: @component-background;
 @box-shadow-base: @shadow-2;
-@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
-  0 -12px 48px 16px rgba(0, 0, 0, 0.03);
-@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
-  0 12px 48px 16px rgba(0, 0, 0, 0.03);
-@shadow-1-left: -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05),
-  -12px 0 48px 16px rgba(0, 0, 0, 0.03);
-@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),
-  12px 0 48px 16px rgba(0, 0, 0, 0.03);
-@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-  0 9px 28px 8px rgba(0, 0, 0, 0.05);
+@shadow-color-2: ~'var(--shadow-color-2)'; // rgba(0,0,0,0.12)
+@shadow-color-3: ~'var(--shadow-color-3)'; // rgba(0,0,0,0.08)
+@shadow-color-4: ~'var(--shadow-color-4)'; // rgba(0,0,0,0.07)
+@shadow-color-5: ~'var(--shadow-color-5)'; // rgba(0,0,0,0.06)
+@shadow-color-6: ~'var(--shadow-color-6)'; // rgba(0,0,0,0.05)
+@shadow-color-7: ~'var(--shadow-color-6)'; // rgba(0,0,0,0.03)
+@shadow-color-8: ~'var(--shadow-color-6)'; // rgba(0,0,0,0.015)
+// @shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
+//   0 -12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-up: 0 -6px 16px -8px @shadow-color-3, 0 -9px 28px 0 @shadow-color-6,
+0 -12px 48px 16px @shadow-color-7;
+// @shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
+//   0 12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-down: 0 6px 16px -8px @shadow-color-3, 0 9px 28px 0 @shadow-color-6,
+  0 12px 48px 16px @shadow-color-7;
+// @shadow-1-left: -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05),
+//   -12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-left: -6px 0 16px -8px @shadow-color-3, -9px 0 28px 0 @shadow-color-6,
+  -12px 0 48px 16px @shadow-color-7;
+// @shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),
+//   12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-right: 6px 0 16px -8px @shadow-color-3, 9px 0 28px 0 @shadow-color-6,
+  12px 0 48px 16px @shadow-color-7;
+// @shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+//   0 9px 28px 8px rgba(0, 0, 0, 0.05);
+@shadow-2: 0 3px 6px -4px @shadow-color-2, 0 6px 16px 0 @shadow-color-3,
+  0 9px 28px 8px @shadow-color-6;
 
 // Buttons
 @btn-font-weight: 400;
@@ -271,18 +314,23 @@ html {
 @btn-border-radius-sm: @border-radius-base;
 @btn-border-width: @border-width-base;
 @btn-border-style: @border-style-base;
-@btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-@btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-@btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+// @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+@btn-shadow: 0 2px 0 @shadow-color-8;
+// @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+@btn-primary-shadow: 0 2px 0 @shadow-color-6;
+// @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+@btn-text-shadow: 0 -1px 0 @shadow-color-2;
 
-@btn-primary-color: #fff;
+// @btn-primary-color: #fff;
+@btn-primary-color: ~'var(--text-color-inverse-1)';
 @btn-primary-bg: @primary-color;
 
 @btn-default-color: @text-color;
 @btn-default-bg: @component-background;
 @btn-default-border: @border-color-base;
 
-@btn-danger-color: #fff;
+// @btn-danger-color: #fff;
+@btn-danger-color: ~'var(--text-color-inverse-1)';
 @btn-danger-bg: @error-color;
 @btn-danger-border: @error-color;
 
@@ -326,13 +374,15 @@ html {
 @checkbox-size: 16px;
 @checkbox-color: @primary-color;
 @checkbox-check-color: #fff;
-@checkbox-check-bg: @checkbox-check-color;
+// @checkbox-check-bg: @checkbox-check-color;
+@checkbox-check-bg: ~'var(--block-color-5)';
 @checkbox-border-width: @border-width-base;
 @checkbox-border-radius: @border-radius-base;
 @checkbox-group-item-margin-right: 8px;
 
 // Descriptions
-@descriptions-bg: #fafafa;
+// @descriptions-bg: #fafafa;
+@descriptions-bg: ~'var(--block-color-4)';
 @descriptions-title-margin-bottom: 20px;
 @descriptions-default-padding: @padding-md @padding-lg;
 @descriptions-middle-padding: @padding-sm @padding-lg;
@@ -363,7 +413,8 @@ html {
 @radio-border-width: 1px;
 @radio-dot-size: @radio-size - 8px;
 @radio-dot-color: @primary-color;
-@radio-dot-disabled-color: fade(@black, 20%);
+// @radio-dot-disabled-color: fade(@black, 20%);
+@radio-dot-disabled-color: ~'var(--text-color-5)';
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
@@ -418,8 +469,10 @@ html {
 @grid-columns: 24;
 
 // Layout
-@layout-body-background: #f0f2f5;
-@layout-header-background: #001529;
+// @layout-body-background: #f0f2f5;
+@layout-body-background: ~'var(--block-color-1)';
+// @layout-header-background: #001529;
+@layout-header-background: ~'var(--block-color-5)';
 @layout-header-height: 64px;
 @layout-header-padding: 0 50px;
 @layout-header-color: @text-color;
@@ -427,13 +480,17 @@ html {
 @layout-footer-background: @layout-body-background;
 @layout-sider-background: @layout-header-background;
 @layout-trigger-height: 48px;
-@layout-trigger-background: #002140;
-@layout-trigger-color: #fff;
+// @layout-trigger-background: #002140;
+@layout-trigger-background:  ~'var(--block-color-5)';
+// @layout-trigger-color: #fff;
+@layout-trigger-color: ~'var(--text-color-inverse-1)';
 @layout-zero-trigger-width: 36px;
 @layout-zero-trigger-height: 42px;
 // Layout light theme
-@layout-sider-background-light: #fff;
-@layout-trigger-background-light: #fff;
+// @layout-sider-background-light: #fff;
+@layout-sider-background-light: ~'var(--block-color-1)';
+// @layout-trigger-background-light: #fff;
+@layout-trigger-background-light: ~'var(--block-color-1)';
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
@@ -506,13 +563,15 @@ html {
 @input-padding-vertical-lg: (
     ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
   ) - @border-width-base;
-@input-placeholder-color: hsv(0, 0, 75%);
+// @input-placeholder-color: hsv(0, 0, 75%);
+@input-placeholder-color: ~'var(--text-color-4)';
 @input-color: @text-color;
 @input-icon-color: @input-color;
 @input-border-color: @border-color-base;
 @input-bg: @component-background;
 @input-number-hover-border-color: @input-hover-border-color;
-@input-number-handler-active-bg: #f4f4f4;
+// @input-number-handler-active-bg: #f4f4f4;
+@input-number-handler-active-bg: ~'var(--block-color-3)';
 @input-number-handler-hover-bg: @primary-5;
 @input-number-handler-bg: @component-background;
 @input-number-handler-border-color: @border-color-base;
@@ -520,7 +579,8 @@ html {
 @input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
-@input-icon-hover-color: fade(@black, 85%);
+// @input-icon-hover-color: fade(@black, 85%);
+@input-icon-hover-color: ~'var(--text-color-1)';
 @input-disabled-color: @disabled-color;
 
 // Mentions
@@ -641,7 +701,7 @@ html {
 @progress-remaining-color: @background-color-base;
 @progress-info-text-color: @progress-text-color;
 @progress-radius: 100px;
-@progress-steps-item-bg: #f3f3f3;
+@progress-steps-item-bg: ~'var(--block-color-4)';
 @progress-text-font-size: 1em;
 @progress-text-color: @text-color; // This is for circle text color, should be renamed better
 @progress-circle-text-font-size: 1em;
@@ -672,18 +732,6 @@ html {
 @menu-icon-size-lg: @font-size-lg;
 @menu-item-group-title-font-size: @menu-item-font-size;
 
-// dark theme
-// @menu-dark-color: @text-color-secondary-dark;
-@menu-dark-danger-color: @error-color;
-@menu-dark-bg: @layout-header-background;
-@menu-dark-arrow-color: #fff;
-@menu-dark-inline-submenu-bg: #000c17;
-@menu-dark-highlight-color: #fff;
-@menu-dark-item-active-bg: @primary-color;
-@menu-dark-item-active-danger-bg: @error-color;
-@menu-dark-selected-item-icon-color: @white;
-@menu-dark-selected-item-text-color: @white;
-@menu-dark-item-hover-bg: transparent;
 // Spin
 // ---
 @spin-dot-size-sm: 14px;
@@ -696,13 +744,15 @@ html {
 @table-header-bg: @background-color-light;
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
-@table-body-sort-bg: #fafafa;
+// @table-body-sort-bg: #fafafa;
+@table-body-sort-bg: ~'var(--block-color-2)';
 @table-row-hover-bg: @background-color-light;
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
 @table-selected-row-hover-bg: ~'var(--@{ant-prefix}-primary-color-active-deprecated-d-02)';
-@table-expanded-row-bg: #fbfbfb;
+// @table-expanded-row-bg: #fbfbfb;
+@table-expanded-row-bg: ~'var(--block-color-4)';
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
 @table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
@@ -875,12 +925,15 @@ html {
 @avatar-font-size-base: 18px;
 @avatar-font-size-lg: 24px;
 @avatar-font-size-sm: 14px;
-@avatar-bg: #ccc;
-@avatar-color: #fff;
+// @avatar-bg: #ccc;
+@avatar-bg: ~'var(--block-color-1)';
+// @avatar-color: #fff;
+@avatar-color: ~'var(--text-color-inverse-1)';
 @avatar-border-radius: @border-radius-base;
 @avatar-group-overlapping: -8px;
 @avatar-group-space: 3px;
-@avatar-group-border-color: #fff;
+// @avatar-group-border-color: #fff;
+@avatar-group-border-color: ~'var(--text-color-inverse-1)';
 
 // Switch
 // ---

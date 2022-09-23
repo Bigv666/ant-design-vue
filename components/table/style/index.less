@@ -663,13 +663,13 @@
       position: relative;
 
       &::before {
-        box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset 10px 0 8px -8px @shadow-color;
       }
     }
 
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
-      box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset 10px 0 8px -8px @shadow-color;
     }
 
     .@{table-prefix-cls}-cell-fix-left-last::before {
@@ -682,13 +682,13 @@
       position: relative;
 
       &::after {
-        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset -10px 0 8px -8px @shadow-color;
       }
     }
 
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
-      box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset -10px 0 8px -8px @shadow-color;
     }
   }
 
