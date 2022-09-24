@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     color: @text-color-inverse;
-    background: fade(@black, 50%);
+    background: @mask-color-2;
     cursor: pointer;
     opacity: 0;
     transition: opacity @animation-duration-slow;
@@ -117,7 +117,7 @@
       width: 100%;
       color: @image-preview-operation-color;
       list-style: none;
-      background: fade(@modal-mask-bg, 10%);
+      background: @mask-color-3;
       pointer-events: auto;
 
       &-operation {
@@ -153,7 +153,7 @@
       height: 44px;
       margin-top: -22px;
       color: @image-preview-operation-color;
-      background: fade(@modal-mask-bg, 10%);
+      background: @mask-color-3;
       border-radius: 50%;
       cursor: pointer;
       pointer-events: auto;

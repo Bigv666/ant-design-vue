@@ -71,10 +71,11 @@ html {
 
   // ========== block color ===========
   --block-color-1: #eee;
-  --block-color-2: #f2f2f2;
-  --block-color-3: #f5f5f5;
+  --block-color-2: #f5f5f5;
+  --block-color-3: #fafafa;
   --block-color-4: #fafafa;
   --block-color-5: #fff;
+  --block-color-6: #e1e1e1;
   // ========== text color ===========
   --text-color-1: rgba(0, 0, 0, 0.85);
   --text-color-2: rgba(0, 0, 0, 0.75);
@@ -85,6 +86,33 @@ html {
   --text-color-inverse-2: rgba(255,255,255,0.8);
   --text-color-inverse-3: rgba(255,255,255,0.6);
   --text-color-inverse-4: rgba(255,255,255,0.3);
+  // ========== 阴影 ===========
+  --shadow-color-1: rgba(0,0,0,0.15);
+  --shadow-color-2: rgba(0,0,0,0.12);
+  --shadow-color-3: rgba(0,0,0,0.08);
+  --shadow-color-4: rgba(0,0,0,0.07);
+  --shadow-color-5: rgba(0,0,0,0.06);
+  --shadow-color-6: rgba(0,0,0,0.05);
+  --shadow-color-5: rgba(0,0,0,0.03);
+  --shadow-color-6: rgba(0,0,0,0.015);
+  // ========== 边框 ===========
+  --border-color-1: hsv(0, 0, 85%);
+  --border-color-2: hsv(0, 0, 94%);
+  --border-color-3: rgba(0, 0, 0,0.06);
+  --border-color-4: transparent;
+  --border-color-5: #d9d9d9;
+  // ========== 滚动条 ===========
+  --scroll-track-color: transparent;
+  --scroll-bar-color: rgba(0,0,0,0.2);
+  --scroll-bar-color-hover: rgba(0,0,0,0.4);
+  --scroll-bar-width: 8px;
+  --scroll-bar-radius: 4px;
+  // ========== 遮罩 ===========
+  --mask-color-1: rgba(0,0,0,0.75);
+  --mask-color-2: rgba(0,0,0,0.45);
+  --mask-color-3: rgba(0,0,0,0.25);
+  --mask-color-4: rgba(190,190,190,0.2);
+  --mask-color-5: rgba(129,129,129,0.2);
 }
 
 // -------- Colors -----------
@@ -248,9 +276,11 @@ html {
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
-@border-color-split: hsv(0, 0, 94%); // split border inside a component
-@border-color-inverse: @white;
+// @border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-base: ~'var(--border-color-1)'; // base border outline a component
+// @border-color-split: hsv(0, 0, 94%); // split border inside a component
+@border-color-split: ~'var(--border-color-2)'; // split border inside a component
+// @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
 
@@ -368,12 +398,14 @@ html {
 @btn-group-border: @primary-5;
 
 @btn-link-hover-bg: transparent;
-@btn-text-hover-bg: rgba(0, 0, 0, 0.018);
+// @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
+@btn-text-hover-bg: transparent;
 
 // Checkbox
 @checkbox-size: 16px;
 @checkbox-color: @primary-color;
 @checkbox-check-color: #fff;
+@checkbox-check-color: ~'var(--text-color-inverse-1)';
 // @checkbox-check-bg: @checkbox-check-color;
 @checkbox-check-bg: ~'var(--block-color-5)';
 @checkbox-border-width: @border-width-base;
@@ -396,7 +428,8 @@ html {
 // Divider
 @divider-text-padding: 1em;
 @divider-orientation-margin: 5%;
-@divider-color: rgba(0, 0, 0, 6%);
+// @divider-color: rgba(0, 0, 0, 6%);
+@divider-color: ~'var(--border-color-3)';
 @divider-vertical-gutter: 8px;
 
 // Dropdown
@@ -609,7 +642,8 @@ html {
 @select-multiple-item-height-lg: 32px;
 @select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
 @select-multiple-disabled-background: @input-disabled-bg;
-@select-multiple-item-disabled-color: #bfbfbf;
+// @select-multiple-item-disabled-color: #bfbfbf;
+@select-multiple-item-disabled-color: ~'var(--text-color-5)';
 @select-multiple-item-disabled-border-color: @select-border-color;
 
 // Cascader
@@ -639,9 +673,11 @@ html {
 // Tooltip max width
 @tooltip-max-width: 250px;
 // Tooltip text color
-@tooltip-color: #fff;
+// @tooltip-color: #fff;
+@tooltip-color: ~'var(--text-color-inverse-1)';
 // Tooltip background color
-@tooltip-bg: rgba(0, 0, 0, 0.75);
+// @tooltip-bg: rgba(0, 0, 0, 0.75);
+@tooltip-bg: ~'var(--mask-color-1)';
 // Tooltip arrow width
 @tooltip-arrow-width: 5px;
 // Tooltip distance with trigger
@@ -670,6 +706,10 @@ html {
 @popover-padding-horizontal: @padding-md;
 
 // Modal
+@mask-color-1: ~'var(--mask-color-1)';
+@mask-color-2: ~'var(--mask-color-2)';
+@mask-color-3: ~'var(--mask-color-3)';
+@mask-color-4: ~'var(--mask-color-4)';
 // --
 @modal-header-padding-vertical: @padding-md;
 @modal-header-padding-horizontal: @padding-lg;
@@ -691,7 +731,7 @@ html {
 @modal-footer-padding-vertical: 10px;
 @modal-footer-padding-horizontal: 16px;
 @modal-footer-border-width: @border-width-base;
-@modal-mask-bg: fade(@black, 45%);
+@modal-mask-bg: @mask-color-2;
 @modal-confirm-body-padding: 32px 32px 24px;
 @modal-confirm-title-font-size: @font-size-lg;
 
@@ -745,7 +785,7 @@ html {
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
 // @table-body-sort-bg: #fafafa;
-@table-body-sort-bg: ~'var(--block-color-2)';
+@table-body-sort-bg: ~'var(--block-color-3)';
 @table-row-hover-bg: @background-color-light;
 @table-selected-row-color: inherit;
 @table-selected-row-bg: @primary-1;
@@ -767,7 +807,7 @@ html {
 @table-font-size: @font-size-base;
 @table-font-size-md: @table-font-size;
 @table-font-size-sm: @table-font-size;
-@table-header-cell-split-color: rgba(0, 0, 0, 0.06);
+@table-header-cell-split-color: ~'var(--border-color-4)';
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: rgba(0, 0, 0, 0.04);
@@ -780,8 +820,8 @@ html {
 @table-expand-icon-bg: @component-background;
 @table-selection-column-width: 32px;
 // Sticky
-@table-sticky-scroll-bar-bg: fade(#000, 35%);
-@table-sticky-scroll-bar-radius: 4px;
+// @table-sticky-scroll-bar-bg: fade(#000, 35%);
+// @table-sticky-scroll-bar-radius: 4px;
 
 // Tag
 // --
@@ -796,7 +836,8 @@ html {
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
 @picker-basic-cell-hover-with-range-color: ~'var(--@{ant-prefix}-primary-color-deprecated-l-35)';
-@picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
+// @picker-basic-cell-disabled-bg: rgba(0, 0, 0, 0.04);
+@picker-basic-cell-disabled-bg: ~'var(--block-color-4)';
 @picker-border-color: @border-color-split;
 @picker-date-hover-range-border-color: ~'var(--@{ant-prefix}-primary-color-deprecated-l-20)';
 @picker-date-hover-range-color: @picker-basic-cell-hover-with-range-color;
@@ -812,7 +853,7 @@ html {
 // ---
 @calendar-bg: @component-background;
 @calendar-input-bg: @input-bg;
-@calendar-border-color: @border-color-inverse;
+// @calendar-border-color: @border-color-inverse;
 @calendar-item-active-bg: @item-active-bg;
 @calendar-column-active-bg: ~'var(--@{ant-prefix}-primary-color-active-deprecated-f-30)';
 @calendar-full-bg: @calendar-bg;
@@ -858,10 +899,13 @@ html {
 @card-padding-base-sm: (@card-padding-base / 2);
 @card-actions-background: @component-background;
 @card-actions-li-margin: 12px 0;
-@card-skeleton-bg: #cfd8dc;
+// @card-skeleton-bg: #cfd8dc;
+@card-skeleton-bg: ~'var(--mask-color-4)';
 @card-background: @component-background;
-@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
-  0 5px 12px 4px rgba(0, 0, 0, 0.09);
+// @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
+//   0 5px 12px 4px rgba(0, 0, 0, 0.09);
+@card-shadow: 0 1px 2px -2px @shadow-color, 0 3px 6px 0 @shadow-color-2,
+  0 5px 12px 4px @shadow-color-3;
 @card-radius: @border-radius-base;
 @card-head-tabs-margin-bottom: -17px;
 @card-head-extra-color: @text-color;
@@ -944,7 +988,8 @@ html {
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
 @switch-bg: @component-background;
-@switch-shadow-color: fade(#00230b, 20%);
+// @switch-shadow-color: fade(#00230b, 20%);
+@switch-shadow-color: @shadow-color-8;
 @switch-padding: 2px;
 @switch-inner-margin-min: ceil(@switch-height * 0.3);
 @switch-inner-margin-max: ceil(@switch-height * 1.1);
@@ -971,7 +1016,8 @@ html {
 @page-header-padding-vertical: @padding-md;
 @page-header-padding-breadcrumb: @padding-sm;
 @page-header-content-padding-vertical: @padding-sm;
-@page-header-back-color: #000;
+// @page-header-back-color: #000;
+@page-header-back-color: inherit;
 @page-header-ghost-bg: inherit;
 @page-header-heading-title: @heading-4-size;
 @page-header-heading-sub-title: 14px;
@@ -992,7 +1038,8 @@ html {
 // ---
 @slider-margin: 10px 6px 10px;
 @slider-rail-background-color: @background-color-base;
-@slider-rail-background-color-hover: #e1e1e1;
+// @slider-rail-background-color-hover: #e1e1e1;
+@slider-rail-background-color-hover: ~'var(--block-color-6)';
 @slider-track-background-color: @primary-3;
 @slider-track-background-color-hover: @primary-4;
 @slider-handle-border-width: 2px;
@@ -1031,8 +1078,10 @@ html {
 
 // Skeleton
 // ---
-@skeleton-color: rgba(190, 190, 190, 0.2);
-@skeleton-to-color: shade(@skeleton-color, 5%);
+// @skeleton-color: rgba(190, 190, 190, 0.2);
+@skeleton-color: ~'var(--mask-color-4)';
+// @skeleton-to-color: shade(@skeleton-color, 5%);
+@skeleton-to-color: ~'var(--mask-color-5)';
 @skeleton-paragraph-margin-top: 28px;
 @skeleton-paragraph-li-margin-top: @margin-md;
 @skeleton-paragraph-li-height: 16px;
@@ -1138,7 +1187,8 @@ html {
 // Steps
 // ---
 @process-tail-color: @border-color-split;
-@steps-nav-arrow-color: fade(@black, 25%);
+// @steps-nav-arrow-color: fade(@black, 25%);
+@steps-nav-arrow-color: ~'var(--text-color-4)';
 @steps-background: @component-background;
 @steps-icon-size: 32px;
 @steps-icon-custom-size: @steps-icon-size;

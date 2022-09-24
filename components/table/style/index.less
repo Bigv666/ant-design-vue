@@ -11,7 +11,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
-@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+// @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 @table-filter-dropdown-max-height: 264px;
 
 .@{table-prefix-cls}-wrapper {
@@ -705,25 +705,25 @@
       z-index: @table-sticky-zindex;
       display: flex;
       align-items: center;
-      background: lighten(@table-border-color, 80%);
+      // background: lighten(@table-border-color, 80%);
+      background: ~'var(--scroll-track-color)'; 
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
-
       &:hover {
         transform-origin: center bottom;
       }
 
       &-bar {
-        height: 8px;
-        background-color: @table-sticky-scroll-bar-bg;
-        border-radius: @table-sticky-scroll-bar-radius;
+        height:  ~'var(--scroll-bar-width)';
+        background-color: ~'var(--scroll-bar-color)';
+        border-radius: ~'var(--scroll-bar-radius)';
 
         &:hover {
-          background-color: @table-sticky-scroll-bar-active-bg;
+          background-color: ~'var(--scroll-bar-color-hover)';
         }
 
         &-active {
-          background-color: @table-sticky-scroll-bar-active-bg;
+          background-color:~'var(--scroll-bar-color-hover)';
         }
       }
     }

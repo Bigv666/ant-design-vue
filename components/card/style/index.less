@@ -5,8 +5,8 @@
 @card-hoverable-hover-border: transparent;
 @card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-skeleton-bg, 20%);
-@gradient-max: fade(@card-skeleton-bg, 40%);
+// @gradient-min: fade(@card-skeleton-bg, 20%);
+// @gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
   .reset-component();
@@ -287,21 +287,25 @@
   &-loading-block {
     height: 14px;
     margin: 4px 0;
-    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
-    background-size: 600% 600%;
+    background: linear-gradient(
+      90deg,
+      @skeleton-color 25%,
+      @skeleton-to-color 37%,
+      @skeleton-color 63%
+    );
+    background-size: 400% 100%;
     border-radius: @card-radius;
     animation: card-loading 1.4s ease infinite;
   }
 }
 
 @keyframes card-loading {
-  0%,
-  100% {
-    background-position: 0 50%;
+  0% {
+    background-position: 100% 50%;
   }
 
-  50% {
-    background-position: 100% 50%;
+  100% {
+    background-position: 0 50%;
   }
 }
 
